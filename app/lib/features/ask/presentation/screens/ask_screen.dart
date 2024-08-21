@@ -3,8 +3,8 @@ import 'package:app/features/ask/presentation/widgets/ask_actions.dart';
 import 'package:app/features/ask/presentation/widgets/ask_input.dart';
 import 'package:flutter/material.dart';
 
-class SearchScreen extends StatelessWidget {
-  const SearchScreen({super.key});
+class AskScreen extends StatelessWidget {
+  const AskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
