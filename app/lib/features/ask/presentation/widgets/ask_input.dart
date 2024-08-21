@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class AskInput extends StatelessWidget {
-  const AskInput({super.key});
+  final TextEditingController questionTextController;
+  const AskInput({super.key,required this.questionTextController});
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding:const EdgeInsets.all(8.0),
         child: TextField(
-          decoration: InputDecoration(
+          controller:questionTextController,
+          decoration:const InputDecoration(
             hintText: 'Ask a Question',
             border: InputBorder.none,
           ),

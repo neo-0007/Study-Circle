@@ -7,6 +7,8 @@ class AskScreen extends StatelessWidget {
   const AskScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    TextEditingController questionController = TextEditingController();
+
     return Scaffold(
       body: Center(
         child: Padding(
@@ -22,11 +24,17 @@ class AskScreen extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
             ),
-            child: const Column(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AskInput(), 
-                AskActions(),
+                AskInput(
+                  questionTextController: questionController,
+                ),
+                AskActions(
+                  onArrowTap: () {},
+                  onMicTap: () {},
+                  onPhotoTap: () {},
+                ),
               ],
             ),
           ),

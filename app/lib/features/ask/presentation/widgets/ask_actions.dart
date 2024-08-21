@@ -2,7 +2,13 @@ import 'package:app/core/theme/appcolors.dart';
 import 'package:flutter/material.dart';
 
 class AskActions extends StatelessWidget {
-  const AskActions({super.key});
+  final void Function() onMicTap;
+  final void Function() onPhotoTap;
+  final void Function() onArrowTap;
+  const AskActions({
+    super.key, required this.onMicTap, 
+    required this.onPhotoTap, 
+    required this.onArrowTap});
 
   @override
   Widget build(BuildContext context) {
@@ -15,24 +21,32 @@ class AskActions extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 7),
-      child: const Row(
+      child: Row(
         children: [
-          CircleAvatar(
-            radius: 15,
-            child: Icon(
-              Icons.mic,
-              color: Colors.black,
+          InkWell(
+            onTap: onMicTap,
+            child:const CircleAvatar(
+              radius: 15,
+              child: Icon(
+                Icons.mic,
+                color: Colors.black,
+              ),
             ),
           ),
-          SizedBox(width: 10),
-          Icon(Icons.photo),
-          Expanded(
+          const SizedBox(width: 10),
+          InkWell(
+            onTap: onPhotoTap,
+            child:const Icon(Icons.photo)),
+          const Expanded(
             child: SizedBox(),
           ),
-          CircleAvatar(
-            radius: 16,
-            backgroundColor: Appcolors.primaryBlue,
-            child: Icon(Icons.arrow_forward_rounded),
+          InkWell(
+            onTap: onArrowTap,
+            child:const CircleAvatar(
+              radius: 16,
+              backgroundColor: Appcolors.primaryBlue,
+              child: Icon(Icons.arrow_forward_rounded),
+            ),
           ),
         ],
       ),
